@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/6.0.0/normalize.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <div class="navbar">
+        别忘录-让你更期待每一天
+    </div>
+    <div class="header">
+        <div class="wrap">
+           记录点滴，记录生活
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div href="#" class="sideitem">登录</div>
+                    <div href="#" class="sideitem">注册</div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <form @submit.prevent="merge" class="test-form">
+                    <input v-model="current.title" type="text" placeholder="请输入待办事项">
+                    <button class="btn btn-danger main" type="submit">提交</button>
+                    <button @click="more_desc=!more_desc" class="btn btn-warning main" type="button">更多</button>
+                </form>
+                <div v-if="more_desc" class="detail">
+                    <textarea v-model="current.desc" placeholder="请添加详情"></textarea>
+                    <input v-model="current.alert_at" type="datetime-local">
+                </div>
+                <div class="test-list" style="clear: both">
+                    <span>未完成</span>
+                    <div :todo="todo" v-if="!todo.completed" v-for="(todo,index) in list" class="item" style="clear: both;">
+                        <div class="avtor"></div>
+                        <span class="title">{{todo.title}}</span>
+                        <button class="btn btn-primary" @click="remove(index)">删除</button>
+                        <button class="btn btn-primary" @click="set_current(todo)">修改</button>
+                        <button class="btn btn-primary" @click="toggle_complete(todo.id)">完成</button>
+                        <button class="btn btn-primary" @click="toggle_detail(todo.id)">详情</button>
+                        <div v-if="todo.show_detail">
+                            {{todo.desc || '暂无详情'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="test-list">
+                    <span>已完成</span>
+                    <div :todo="todo" v-if="todo.completed" v-for="(todo,index) in list" class="item completed">
+                        {{todo.title}}
+                        <button class="btn btn-primary" @click="remove(index)">删除</button>
+                        <button class="btn btn-primary" @click="toggle_complete(todo.id)">重做</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">版权归Xue所有</div>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+<script src="js/myStorage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

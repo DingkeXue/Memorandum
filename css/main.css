@@ -1,0 +1,87 @@
+* {
+    /*background: rgba(0,0,0,.05);*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 1.7;
+}
+
+input, button, textarea {
+    padding: 5px;
+    border-radius: 5px;
+}
+input, textarea {
+    display: block;
+    border: 1px solid rgba(0,0,0,.3);
+    width: 98.5%;
+}
+
+.main  {
+    float: none;
+    margin: 10px 0;
+    display: inline-block;
+    width: 49%;
+}
+
+.btn-primary {
+    float: right;
+    margin: 5px 5px;
+}
+.avtor {
+    padding: 10px 5px;
+    width: 30px;
+    height: 30px;
+    background: #007bff;
+    border-radius: 15px;
+}
+.navbar {
+    background: #db4c3f;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+}
+
+.sidebar {
+    padding: 0px 5px;
+}
+
+.sideitem {
+    padding: 3px 0;
+    background: #ddd;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 3px;
+    border: 1px solid rgba(0,0,0,.1);
+    text-align: center;
+}
+.wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.header {
+    color: #444;
+    text-align: center;
+    padding: 10px auto;
+    margin: 10px 10px;
+    font-size: 20px;
+
+}
+.test-list {
+    padding: 20px 0;
+    margin: 10px 0;
+    border: 1px solid rgba(0,0,0,.1);
+    width: 98.5%;
+}
+.test-list .item > * {
+    display: inline-block;
+    line-height: 1.5;
+}
+.title {
+    font-size: 20px;
+    vertical-align: top;
+}
+.footer {
+    text-align: center;
+    margin: 500px auto;
+}
